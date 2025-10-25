@@ -3,3 +3,5 @@ replays/*
 missions/*
 bepinex/*
 banlist/*
+docker-compose.yml
+old_stuff/*
