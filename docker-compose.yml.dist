@@ -1,0 +1,26 @@
+services:
+  nuclearoption:
+    image: nuclearoptions-server
+    build:
+      context: ./build
+      dockerfile: Dockerfile
+    ports:
+      - "7790-7791:7790-7791/udp"
+      - "7790-7791:7790-7791/tcp"
+    volumes:
+      - "./missions/altercation:/missions"
+      - "./replays:/replays"
+      - "./logs:/logs"
+    # Args to the entrypoint
+    command: [
+      "--modded", "false",
+      "--name", "Nuclear Option | Default Server",
+      "--password", "",
+      "--port-override", "true",
+      "--port-value", "7790",
+      "--query-override", "true",
+      "--query-value", "7791",
+      "--maxplayers", "32",
+      "--nostoptime", "1.0"
+    ]
+    restart: unless-stopped
